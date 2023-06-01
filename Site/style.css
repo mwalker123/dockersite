@@ -1,0 +1,313 @@
+/* Map */
+.dot {
+  padding: 0;
+  margin: 0;
+	height: 25px;
+	width: 30px;
+
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border-width: 0px;
+  position: absolute;
+}
+.dot:hover {
+  filter: brightness(140%);
+}
+.clicked,
+.clicked.hasEnemy {
+  filter: brightness(40%);
+}
+.near {
+  filter: brightness(60%);
+}
+.hasEnemy {
+  filter: sepia(100%) saturate(350%) brightness(60%) hue-rotate(310deg);
+}
+
+#map {
+  background: hsl(109, 29%, 34%);
+  height: 435px;
+  width: 925px;
+  min-width: 925px;
+  border-radius: 25%;
+  margin: 5px;
+}
+
+
+/* Cards */
+.doubleBorder {
+  border-width: 3px;
+  border-style: solid;
+  outline-width: 4px;
+  outline-style: solid;
+}
+#statHelper {
+  position: absolute;
+  top: 50px;
+  left: 23px;
+  width: 100px;
+  text-align: center;
+}
+#playerCard {
+  height: 150px;
+  width: 220px;
+  min-width: 220px;
+  margin: 0px;
+  padding: 2px;
+  border-radius: 3%;
+  text-align: center;
+}
+#fullCard {
+  height: 335px;
+  width: 220px;
+  min-width: 220px;
+  margin: 40px 5px 5px 20px;
+  padding: 10px;
+  border-radius: 2%;
+  text-align: center;
+  visibility: hidden;
+}
+#playerHealth, 
+#enemyHealth {
+  height: auto;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+#healthImg {
+  height: auto;
+  width: 35px;
+  position: absolute;
+  top: -9px;
+  left: 175px;
+  right: 0;
+}
+#fullCardImg {
+  height: 130px;
+  width: 180px;
+}
+.descriptionContainer {
+  border-style: hidden;
+  outline-width: 0;
+  padding: 5px;
+  margin: 0px 5px 10px 5px;
+  height: 147px; 
+  width: 90%;
+}
+#fullCardDescription {
+  width: 100%;
+  height: 50%;
+  margin: 0;
+}
+.wideStatbox {
+  position: relative;
+  border-width: 3px;
+  border-style: solid;
+  outline-width: 4px;
+  outline-style: solid;
+  margin: 10px auto;
+  width: 90%;
+}
+.statbox {
+  position: relative;
+  border-width: 3px;
+  border-style: solid;
+  outline-width: 4px;
+  outline-style: solid;
+  margin: 5px auto;
+  width: 37%;
+  height: 18px;
+}
+.statIcon {
+  height: auto;
+  width: 30px;
+  position: absolute;
+  top: -6px;
+  left: -1px;
+  right: 0;
+}
+#fullCard input,
+#playerCard div input {
+  border-width: 0;
+  outline-width: 0;
+}
+.statbox input {
+  position: absolute;
+  width: 56%;
+  right: 0;
+}
+.wideStatbox input {
+  position: absolute;
+  width: 80%;
+  right: 0;
+}
+
+#playerCard.player {
+  background-color: #0e0e0e;
+}
+.player,
+.player .nameContainer {
+  background-color: #B4E1FA;
+  border-color: darkblue;
+  outline-color: #0F95DF;
+  left: 0;
+}
+#fullCard.enemy {
+  background-color: #cf7b79;
+}
+.enemy,
+.enemy .descriptionContainer,
+.enemy .nameContainer {
+  background-color: #dfa7a5;
+  border-color: #74302e;
+  outline-color: #efd3d2;
+}
+.attack {
+  background-color: #f8caac;
+  border-color: #834016;
+  outline-color: #f4b082;
+}
+.defence {
+  background-color: #b8caec;
+  border-color: #263c65;
+  outline-color: #8ea8db;
+}
+.speed {
+  background-color: #c9bdd8;
+  border-color: #524365;
+  outline-color: #9e8bb6;
+}
+.loot {
+  background-color: #c79f7c;
+  border-color: #7b471b;
+  outline-color: #b38359;
+}
+
+
+/* Dice Roller */
+.floatingImgContainer {
+  position: relative;
+  margin: 5px;
+}
+
+[disabled="true"] #rollDice {
+  visibility: hidden;
+}
+
+[disabled="false"] #diceImg {
+  opacity: 10%;
+}
+
+.diceImg {
+  height: auto;
+  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#diceBackground {
+  background-color: #1e1e1e;
+  border-radius: 15%;
+  height: 150px;
+  width: 150px;
+}
+
+
+/* Player choice buttons */
+#buttons {
+  width: 520px;
+}
+.choiceSelector {
+  width: 500px;
+  height: 45px;
+  margin: 5px 10px;
+  padding: 5px;
+}
+
+
+/* Snackbar to display messages throughout play */
+#snackbar {
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+
+/* Animations */
+.shake,
+#fullCard.shake {
+  visibility: visible;
+  -webkit-animation: shake 0.5s;
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.show,
+#fullCard.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+}
+.hide,
+#fullCard.hide {
+  visibility: visible;
+  -webkit-animation: fadeout 0.5s;
+  animation: fadeout 0.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@-webkit-keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

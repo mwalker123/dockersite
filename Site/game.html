@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MapShifter</title>
+        <link rel="icon" href="./mapTiles/mysteryTile.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="margin: 0;">
+        <div style="display: flex;">
+            <div id="map">
+                <!-- The hex grid generates in here -->
+            </div>
+
+            <div id="fullCard" class="enemy">
+                <div class="nameContainer doubleBorder wideStatbox" style="margin: 8px 5px 10px 5px;">
+                    <img id="healthImg" src="./cardParts/hlth.png" alt="Health points icon">
+                    <input id="enemyHealth" style="left: 173px; top: .5px; width: 35px;" type="text" readonly value="1" title="Health points decrease by one each time an enemy's defence reaches zero">
+                    <input id="fullCardName" class="enemy" style="position: absolute; left: 0;" type="text" placeholder="Name" readonly><br>
+                </div>
+                <img id="fullCardImg">
+                <div  class="descriptionContainer" style="display: flex; flex-wrap: wrap;">
+                    <p id="fullCardDescription"> A very in depth description </p>
+                    <div class="attack statbox">
+                        <input id="enemyAttack" class="attack" type="text" placeholder="Attack" title="Attack determines the amount of damage an enemy can do to you" readonly><br>
+                        <img class="statIcon" src="./cardParts/atk.png" alt="Attack icon">
+                    </div>
+                    <div class="defence statbox">
+                        <input id="enemyDefence" class="defence" type="text" placeholder="Defence" title="Defence determines the amount of damage an enemy can take before losing a health point" readonly><br>
+                        <img class="statIcon" src="./cardParts/def.png" alt="Defence icon">
+                    </div>
+                    <div class="speed statbox">
+                        <input id="enemySpeed" class="speed" type="text" placeholder="Speed"  title="Speed determines how early an enemy can move in a fight and can your make escape attempts less likely to succeed" readonly><br>
+                        <img class="statIcon" src="./cardParts/spd.png" alt="Speed icon">
+                    </div>
+                    <div class="loot statbox">
+                        <input id="enemyLoot" class="loot" type="text" placeholder="Loot"  title="Loot determines how many points will be earned upon defeating this enemy" readonly><br>
+                        <img class="statIcon" src="./cardParts/loot.png" alt="Loot icon">
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div style="display: flex;">
+            <div id="diceButton" class="floatingImgContainer" disabled="true">
+                <div id="diceBackground"></div>
+                <img class="diceImg" id="diceImg">
+                <img class="diceImg" id="rollDice" src="./dice/diceRoll.png" alt="Roll dice prompt">
+                <div id="statHelper" class="doubleBorder player">You have 15<br> stat points left<br> to assign</div>
+            </div>
+            <div id="playerCard" class="player">
+                <div class="nameContainer doubleBorder wideStatbox" style="margin: 8px 5px 20px 5px;" title="Player name">
+                    <img id="healthImg" src="./cardParts/hlth.png" alt="Health points icon">
+                    <input id="playerHealth" style="left: 173px; top: .5px; width: 35px;" type="text" readonly value="5" title="Health points decrease by one each time your defence reaches zero">
+                    <input id="playerName" class="player" style="position: absolute; left: 0;" type="text" placeholder="Name"><br>
+                </div>                
+                <div class="wideStatbox attack" title="Attack determines the amount of damage you can do to an enemy">
+                    <input id="playerAttack" class="attack" type="number" placeholder="Attack"><br>
+                    <img class="statIcon" src="./cardParts/atk.png" alt="Attack icon">
+                </div>
+                <div class="wideStatbox defence">
+                    <input id="playerDefence" class="defence" type="number" placeholder="Defence" title="Defence determines the amount of damage you can take before losing a health point"><br>
+                    <img class="statIcon" src="./cardParts/def.png" alt="Defence icon">
+                </div>
+                <div class="wideStatbox speed">
+                    <input id="playerSpeed" class="speed" type="number" placeholder="Speed" title="Speed determines how early you can move in a fight and can help when escaping from an enemy"><br>
+                    <img class="statIcon" src="./cardParts/spd.png" alt="Speed icon">
+                </div>
+            </div>
+            <div id="buttons">
+                <button id="attackButton" class="choiceSelector" title="Attempt to damage an enemy &#8212; the damage done will equal attack + a D6 dice roll - 3" disabled> Attack </button>
+                <button id="fleeButton" class="choiceSelector" title="Attempt to escape from an enemy &#8212; your attempt will succeed if your enemy's speed is less than your own speed + a D6 dice roll - 3" disabled> Escape </button>
+            </div>
+        </div>
+    </body>
+</html>
